@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Isim:</strong>
+  <%= @kitap.isim %>
+</p>
+
+<p>
+  <strong>Ozet:</strong>
+  <%= @kitap.ozet %>
+</p>
+
+<p>
+  <strong>Sayfa:</strong>
+  <%= @kitap.sayfa %>
+</p>
+
+<p>
+  <strong>Beğeni sayısı:</strong>
+  <%= link_to " Beğen ", kitap_like_path(@kitap), remote: :true, method: :put %>
+
+  <div id="like">
+    <%= @kitap.like.sayi %>
+  </div>
+</p>
+<%= image_tag @kitap.resim.url(:medium) if @kitap.resim? %>
+<%= link_to 'Edit', edit_kitap_path(@kitap) %> |
+<%= link_to 'Back', kitaps_path %>

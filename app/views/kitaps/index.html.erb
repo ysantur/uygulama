@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+    <% @kitaps.each do |kitap| %>
+        <div class="container-fluid">
+               <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"> <%= kitap.isim %> <%=kitap.user.email%> </h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= kitap.ozet %></h6>
+              <p class="card-text"><%= image_tag kitap.resim.url(:thumb) if kitap.resim? %></p>
+              <%= link_to 'Show', kitap %>
+              <%= link_to 'Edit', edit_kitap_path(kitap) %>
+              <%= link_to 'Destroy', kitap, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+        </div>
+    </div>
+    <% end %>
+
+
+<br>
+
+<%= link_to 'New Kitap', new_kitap_path %>
